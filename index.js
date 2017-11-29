@@ -17,6 +17,10 @@ app.get('/profile', function(request, response) {
 	response.render('pages/profile');
 });
 
+app.get('/account', function(request, response) {
+	response.render('pages/account');
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });

@@ -2,16 +2,46 @@
 <html>
 <head>
     <% include ../partials/header.ejs %>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/profile.css" />
 </head>
 
 <body>
-
 <% include ../partials/nav.ejs %>
-
-<div class="jumbotron text-center">
-    <div class="container">
-        <h1>Profile Page</h1>
-    </div>
+<div class="body-container">
+    <section class="section-container profile">
+        <header class="section-header">
+            <h2>Profile</h2>
+        </header>
+        <article class="image-container profile-image">
+            <h4>Profile Picture</h4>
+        </article>
+        <article class="title-box">
+            <h4 id="name-text">Name</h4>
+        </article>
+        <article class="title-box">
+            <h4 id="film-text">Top Film</h4>
+        </article>
+        <article class="title-box">
+            <h4 id="tv-show-text">Top TV Show</h4>
+        </article>
+        <article class="description-box">
+            <p id="bio">This is my bio</p>
+        </article>
+    </section>
+    <section class="section-container showcase">
+        <header class="section-header">
+            <h2>Showcase</h2>
+        </header>
+        <article class="image-container showcase-image">
+            <h4>Showcase Picture</h4>
+        </article>
+        <article class="title-box showcase-title">
+            <h4>Showcase title</h4>
+        </article>
+        <article class="description-box showcase-description-box">
+            <p id="showcase-description">This is my bio</p>
+        </article>
+    </section>
 </div>
 </body>
 </html>

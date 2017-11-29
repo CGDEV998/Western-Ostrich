@@ -1,0 +1,68 @@
+.body-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 5%;
+}
+
+    .section-container {
+        position: relative;
+        width: 40%;
+        height: 50%;
+    }
+
+    .profile {
+        float: left;
+        width: 50%;
+    }
+
+    .showcase {
+        float: right;
+    }
+
+        .section-header {
+            text-align: center;
+        }
+
+        .image-container {
+            position: relative;
+            width: 45%;
+            height: 52%;
+            margin: 2%;
+            border-style: solid;
+            border-width: medium;
+        }
+        .profile-image {
+            float: left;
+        }
+
+        .showcase-image {
+            display: block;
+            margin: 2% auto;
+        }
+
+        .title-box {
+            display: inline-block;
+            position: relative;
+            width: 45%;
+            margin: 2%;
+            padding: 1%;
+            border-style: solid;
+            border-width: medium;
+        }
+
+        .showcase-title {
+            display: block;
+            margin: 2% auto;
+        }
+
+        .description-box {
+            display: inline-block;
+            position: relative;
+            width: 94%;
+            height: 25%;
+            margin: 2%;
+            padding: 1%;
+            border-style: solid;
+            border-width: medium;
+        }
