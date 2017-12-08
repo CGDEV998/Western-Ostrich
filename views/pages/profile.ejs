@@ -8,45 +8,29 @@
 <body>
 <% include ../partials/nav.ejs %>
 <div class="body-container">
-    <section class="section-container profile">
-        <header class="section-header">
-            <h2>Profile</h2>
-        </header>
-        <article class="image-container profile-image">
-            <Picture id="profile-picture" name="Profile Picture">
+    <section class="section-container">
+        <article class="image-container">
+            <img src="/images/ostrich-profile.jpg" />
         </article>
-        <article class="title-box">
-            <h4>Name</h4>
-            <input id="profile-name" type="text" value="" placeholder="What's your name?">
-        </article>
-        <article class="title-box">
-            <h4>Top Film</h4>
-            <input id="profile-film" type="text" value="" placeholder="What's your favourite film?">
-        </article>
-        <article class="title-box">
-            <h4>Top TV Show</h4>
-            <input id="profile-tv-show"type="text" value="" placeholder="What's your favourite tv show?">
-        </article>
-        <article class="upload-image">
-            <input type="file" />
-        </article>
-        <article class="description-box">
+        <section>
+            <ul class="profile-table">
+                <li>
+                    <label>Name</label>
+                    <span>Khanh</span>
+                </li>
+                 <li>
+                    <label>Top Film</label>
+                    <span>My little pony</span>
+                </li>
+                 <li>
+                    <label>Top TV Show</label>
+                    <span>My little pony and friends</span>
+                </li>
+            </ul>
+        </section>
+        <article>
             <h4>Bio</h4>
-            <textarea id="profile-bio" type="text" value="" placeholder="Write something about yourself!"></textarea>
-        </article>
-    </section>
-    <section class="section-container showcase">
-        <header class="section-header">
-            <h2>Showcase</h2>
-        </header>
-        <article class="image-container showcase-image">
-            <picture id="showcase-image" type="file" name="showcase Picture">
-        </article>
-        <article class="title-box showcase-title">
-            <h4>Showcase title</h4>
-        </article>
-        <article class="description-box showcase-description-box">
-            <p id="showcase-description">This is my bio</p>
+            <span>i love rainbows</span>
         </article>
     </section>
 </div>
