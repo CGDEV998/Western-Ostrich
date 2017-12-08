@@ -9,8 +9,16 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/', function(request, response) {
+app.get('/western-ostrich', function(request, response) {
   response.render('pages/index');
+});
+
+app.get('/profile', function(request, response) {
+	response.render('pages/profile');
+});
+
+app.get('/account', function(request, response) {
+	response.render('pages/account');
 });
 
 app.listen(app.get('port'), function() {
