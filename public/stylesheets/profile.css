@@ -6,7 +6,7 @@
     font-size: 24px;
 }
 
-    .section-container {
+    .user-info {
         position: relative;
         width: 40%;
         height: 50%;
@@ -32,14 +32,27 @@
             list-style: none; 
         }
 
+    .user-watch-lists {
+        width: 100%;
+        height: 50%;
+    }
+
         .watched {
+            display: inline-block;
+        }
+
+        .to-watch {
+            display: inline-block;
+        }
+
+        .list {
             border-style: solid;
             border-width: medium;
             max-width: 50rem;
             max-height: 40rem;
         }
 
-            .watched .list-header {
+            .list .list-header {
                 padding: 1rem;
                 position: relative;
                 border-bottom: solid medium;
@@ -49,14 +62,14 @@
                     margin: 0;
                 }
 
-            .watched .watched-list {
+            .list .list-body {
                 padding: 1rem;
                 height: 30rem;
                 overflow-y: scroll;
                 overflow-x: hidden;
             }
 
-                .watched-list li { 
+                .list-body li { 
                     padding: 0;
                     word-wrap: break-word;
                     border-bottom: solid thin;
