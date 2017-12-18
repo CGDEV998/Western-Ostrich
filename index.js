@@ -36,13 +36,13 @@ app.get('/profile-info/:userid', (request, response) => {
 
   switch(userId) {
       case '01':
-          return response.json(profileInfo1);
+          return response.status(200), response.json(profileInfo1);
           break;
       case '02':
-          return response.json(profileInfo2);
+          return response.status(200), response.json(profileInfo2);
           break;
       default:
-          return response.json('no user found');
+          return response.sendStatus(404);
   };
 })
 
@@ -58,13 +58,13 @@ app.get('/watched-list/:userid', (request, response) => {
 
   switch (userId) {
     case '01':
-      return response.json(watched01);
+      return response.status(200), response.json(watched01);
       break;
     case '02':
-      return response.json(watched02);
+      return response.status(200), response.json(watched02);
       break;
     default:
-      return response.json('list not found');
+      return response.sendStatus(404);
   };
 });
 
@@ -80,13 +80,13 @@ app.get('/towatch-list/:userid', (request, response) => {
 
   switch (userId) {
     case '01':
-      return response.json(toWatch1);
+      return response.status(200), response.json(toWatch1);
       break;
     case '02':
-      return response.json(toWatch2);
+      return response.status(200), response.json(toWatch2);
       break;
     default:
-      return response.json('list not found');
+      return response.sendStatus(404);
   };
 });
 
