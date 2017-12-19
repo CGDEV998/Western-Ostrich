@@ -50,18 +50,19 @@ app.get('/watched-list/:userid', (request, response) => {
   let userId = request.params.userid;
 
   let watched01 = {
-    data: ['power rangers', 'justice league']
-  };
-  let watched02 = {
-    data: ['die hard', 'blade runner']
+    watched: [{
+      title: 'Power Rangers',
+      director: 'Raf',
+    },
+    {
+      title: 'die hard',
+      director: 'donkey',
+    }]
   };
 
   switch (userId) {
     case '01':
       return response.status(200), response.json(watched01);
-      break;
-    case '02':
-      return response.status(200), response.json(watched02);
       break;
     default:
       return response.sendStatus(404);
@@ -72,18 +73,19 @@ app.get('/towatch-list/:userid', (request, response) => {
   let userId = request.params.userid;
 
   let toWatch1 = {
-    data: ['back to the future2', 'star wars'],
-  };
-  let toWatch2 = {
-    data: ['star trek', 'game of thrones'],
+    toWatch: [{
+      title: 'back to the future2',
+      director: 'nic',
+    },
+    { 
+      title: 'star trek',
+      director: 'aaron',
+    }]
   };
 
   switch (userId) {
     case '01':
       return response.status(200), response.json(toWatch1);
-      break;
-    case '02':
-      return response.status(200), response.json(toWatch2);
       break;
     default:
       return response.sendStatus(404);
