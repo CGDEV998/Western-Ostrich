@@ -39,6 +39,7 @@
 
         .watched {
             display: inline-block;
+        
         }
 
         .to-watch {
@@ -48,8 +49,8 @@
         .list {
             border-style: solid;
             border-width: medium;
-            max-width: 50rem;
-            max-height: 40rem;
+            width: 50rem;
+            min-height: 40rem;
         }
 
             .list .list-header {
@@ -73,4 +74,12 @@
                     padding: 0;
                     word-wrap: break-word;
                     border-bottom: solid thin;
+                }
+            .list .list-footer {
+                padding: 1rem;
+                position: relative;
+                border-top: solid thin;
+            }
+                .list-footer input {
+                    left: 30rem;
                 }
