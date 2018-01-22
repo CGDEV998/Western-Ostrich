@@ -5,6 +5,7 @@ const { Pool } = require('pg');
 const router = express.Router();
 
 const config = {
+    // This will work with dotenv npm package set up, requires refactor for server operation
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
