@@ -1,5 +1,5 @@
 CREATE DATABASE western_ostrich;
--- You can decide what the your loca password is
+-- You can decide what the your local password is
 CREATE USER 'west_o' WITH PASSWORD 'password';
 GRANT ALL PRIVILEGES ON DATABASE western_ostrich TO west_o;
 
@@ -7,6 +7,7 @@ CREATE SEQUENCE user_id_seq;
 
 CREATE TABLE users (
   id INTEGER NOT NULL DEFAULT nextval('user_id_seq'::regclass) CONSTRAINT users_id_pk PRIMARY KEY,
+  username CHARACTER VARYING(25) NOT NULL,
   first_name CHARACTER VARYING(45) NOT NULL,
   last_name CHARACTER VARYING(45) NOT NULL,
   email CHARACTER VARYING(50),
