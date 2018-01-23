@@ -1,6 +1,6 @@
 /* global $ */
 
-$.get('/profile-info/01', (data) => {
+$.get('/profile/:username', (data) => {
   $('#username').text(data.username);
 });
 
