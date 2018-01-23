@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <% include ../partials/header.ejs %>
     <link rel="stylesheet" type="text/css" href="/stylesheets/profile.css" />
-</head>
+  </head>
 
-<body>
-<% include ../partials/nav.ejs %>
-<div class="body-container">
-    <section class="user-info">
+  <body>
+    <% include ../partials/nav.ejs %>
+    <div class="body-container">
+      <section class="user-info">
         <div class="image-container">
-            <img src="/images/ostrich-profile.jpg" />
+          <img src="/images/ostrich-profile.jpg" />
         </div>
         <ul class="profile">
-            <li>
-                <span id='username'></span>
-            </li>
+          <li>
+            <span id='usrname'>
+              <%= username %>
+          </span>
+          </li>
         </ul>
-    </section>
-    <section class="user-watch-lists">
+      </section>
+      <section class="user-watch-lists">
         <section class="watched list">
-            <div class="list-header">
+          <div class="list-header">
             <h1> Watched </h1>
-            </div>
-            <ul id='watched-list' class="list-body"></ul>
-            <div class="list-footer">
+          </div>
+          <ul id='watched-list' class="list-body"></ul>
+          <div class="list-footer">
             <input type="button" value="+">
-            </div>
+          </div>
         </section>
         <section class="to-watch list">
-            <div class="list-header">
+          <div class="list-header">
             <h1> To Watch</h1>
-            </div>
-            <ul id='to-watch-list' class="list-body"></ul>
-            <div class="list-footer">
+          </div>
+          <ul id='to-watch-list' class="list-body"></ul>
+          <div class="list-footer">
             <input type="button" value="+">
-            </div>
+          </div>
         </section>
-    </section>
-</div>
-<script src="https://code.jquery.com/jquery-3.2.1.js"
-		integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-		crossorigin="anonymous"></script>
-<script src="/scripts/profile/main.js" ></script>
+      </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+      integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+  <script src="/scripts/profile/main.js" ></script>
 </body>
 </html>
