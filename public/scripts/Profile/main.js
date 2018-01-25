@@ -1,20 +1,11 @@
 /* global $ */
 
 // $.get('/profile/:username', (data) => {
-//   $('#username').text(data.username);
+//   $('#username').text(this.data.user.username);
+//   for (var i = 0; i < data.watched.length; i++) {
+//     $('#watched-list').append($('<li>' + data.watched[i].title + '</li>'));
+//   };
+//   for (var i = 0; i < data.toWatch.length; i++) {
+//     $('#to-watch-list').append($('<li>' + data.toWatch[i].title + '</li>'));
+//   };
 // });
-//
-$.get('/watched-list/01', (data) => {
-  const watched = data.watched;
-  for (var i = 0; i < watched.length; i++) {
-    $('#watched-list').append($('<li>' + watched[i].title + '</li>'));
-  };
-});
-
-$.get('/towatch-list/01', (data) => {
-  const toWatch = data.toWatch;
-  for (var i = 0; i < toWatch.length; i++) {
-    $('#to-watch-list').append($('<li>' + toWatch[i].title + '</li>'));
-  };
-});
-

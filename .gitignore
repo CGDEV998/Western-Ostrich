@@ -12,4 +12,5 @@ Dockerfile
 docker-compose.yml
 
 .idea
+.vscode
 package-lock.json

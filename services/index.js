@@ -1,7 +1,9 @@
 'use strict';
 
 const user = require('./users');
+const watch = require('./watch');
 
 module.exports = {
-  userService: user
+  userService: user,
+  watchService: watch
 };
