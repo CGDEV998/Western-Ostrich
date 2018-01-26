@@ -2,7 +2,7 @@ CREATE DATABASE western_ostrich;
 -- You can decide what the your local password is
 CREATE USER 'west_o' WITH PASSWORD 'password';
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO west_o;
-GRANT ALL PRIVILEGES ON DATABASE "western_ostrich" TO west_o;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO west_o;
 
 CREATE SEQUENCE user_id_seq;
 
