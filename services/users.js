@@ -15,7 +15,9 @@ function getUser (username) {
 
   client.connect();
 
-  return client.query(`SELECT * FROM users WHERE username = $1`, [username]);
+  return client.query(`
+    SELECT * FROM users
+    WHERE username = $1`, [username]);
 };
 
 module.exports = {

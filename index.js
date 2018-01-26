@@ -18,52 +18,20 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
   res.render('pages/index');
 });
-/*
-steps:
-1. get user
-2. get user media
-3. render user on profile page
-4. render watched list on profile page
-5. render to watch list on profile page
-*/
+
 app.get('/profile/:username', (req, res) => {
   var username = req.params.username;
-  var data = {};
-
   blueBirdPromise.all([
-    userService.getUser(username), 
-    watchService.getWatched(1),
-    watchService.getToWatch(1)
+    userService.getUser(username),
+    watchService.getWatched(username),
+    watchService.getToWatch(username)
   ]).then((values) => {
-    console.log(values);
+    res.render(`./pages/profile`, {
+      user: values[0].rows[0],
+      watchedList: values[1].rows,
+      toWatchList: values[2].rows
+    });
   });
-
-//   var userPromise = userService.getUser(username)
-//     .then(userData => {
-//       var user = userData.rows[0];
-//       data["user"] = user;
-//       var watchedPromise = watchService.getWatched(username)
-//       .then(watchedListData => {
-//         var watchedlist = watchedListData.rows;
-//         data["watchedList"] = watchedlist;
-//       }).catch(e => { console.error('error: ', e) });
-//       var toWatchPromise = watchService.getToWatch(username)
-//       .then(toWatchListData => {
-//         var toWatchList = toWatchListData.rows;
-//         data["toWatchList"] = toWatchList;
-//       }).catch(e => { console.error('error: ', e) });
-//       watchedPromise.then((values) => {
-//         toWatchPromise.then((values) => {
-//           userPromise.then((values) => {
-//             res.render(`./pages/profile`, {
-//               user: data.user,
-//               watchedList: data.watchedList,
-//               toWatchList: data.toWatchList
-//             });
-//           }).catch(e => { console.error('error: ', e) });
-//         }).catch(e => { console.error('error: ', e) });
-//       }).catch(e => { console.error('error: ', e) });
-//     }).catch(e => { console.error('error: ', e) });
 });
 
 app.get('*', (req, res) => {
