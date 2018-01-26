@@ -1,9 +1,9 @@
 /* global $ */
 
-$.get('/profile/:username', (data) => {
-  $('#username').text(data.username);
-});
-
+// $.get('/profile/:username', (data) => {
+//   $('#username').text(data.username);
+// });
+//
 $.get('/watched-list/01', (data) => {
   const watched = data.watched;
   for (var i = 0; i < watched.length; i++) {
