@@ -14,8 +14,8 @@
         </div>
         <ul class="profile">
           <li>
-            <span id='usrname'>
-              <%= username %>
+            <span id='username'>
+              <%= user.username %>
           </span>
           </li>
         </ul>
@@ -25,7 +25,11 @@
           <div class="list-header">
             <h1> Watched </h1>
           </div>
-          <ul id='watched-list' class="list-body"></ul>
+          <ul id='watched-list' class="list-body">
+            <% for(var i=0; i<watchedList.length; i++) {%>
+              <li><%= watchedList[i].title %></li>
+            <% } %>
+          </ul>
           <div class="list-footer">
             <input type="button" value="+">
           </div>
@@ -34,7 +38,11 @@
           <div class="list-header">
             <h1> To Watch</h1>
           </div>
-          <ul id='to-watch-list' class="list-body"></ul>
+          <ul id='to-watch-list' class="list-body">
+            <% for(var i=0; i<toWatchList.length; i++) {%>
+              <li><%= toWatchList[i].title %></li>
+            <% } %>
+          </ul>
           <div class="list-footer">
             <input type="button" value="+">
           </div>
@@ -45,5 +53,6 @@
       integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous"></script>
   <script src="/scripts/profile/main.js" ></script>
+  <
 </body>
 </html>
