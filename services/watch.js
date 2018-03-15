@@ -5,12 +5,7 @@ const router = express.Router();
 
 function getWatched (username) {
     const client = new Client({
-        // connectionString: process.env.HEROKU_POSTGRESQL_PINK_URL
-        user: 'west_o',
-        host: 'localhost',
-        database: 'western_ostrich',
-        password: 'pxxg',
-        port: 5432,
+        connectionString: process.env.HEROKU_POSTGRESQL_PINK_URL
       });
     
       client.connect();
@@ -24,12 +19,7 @@ function getWatched (username) {
 
 function getToWatch (username) {
     const client = new Client({
-        // connectionString: process.env.HEROKU_POSTGRESQL_PINK_URL
-        user: 'west_o',
-        host: 'localhost',
-        database: 'western_ostrich',
-        password: 'pxxg',
-        port: 5432,
+        connectionString: process.env.HEROKU_POSTGRESQL_PINK_URL
       });
     
       client.connect();
