@@ -8,19 +8,31 @@
   <body>
     <% include ../partials/nav.ejs %>
     <div class="body-container">
-      <section class="user-info">
-        <div class="image-container">
-          <img src="/images/ostrich-profile.jpg" />
-        </div>
-        <ul class="profile">
-          <li>
-            <span id='username'>
-              <%= user.username %>
-          </span>
-          </li>
-        </ul>
-      </section>
-      <section class="user-watch-lists">
+      <section class="page-top">
+        <section class="user-info">
+          <div class="image-container">
+            <img src="/images/ostrich-profile.jpg" />
+          </div>
+          <ul class="profile">
+            <li>
+              <span id='username'>
+                <%= user.username %>
+            </span>
+            </li>
+          </ul>
+        </section>
+        <section class="recommended-list list">
+            <div class="list-header">
+              <h1>Recommended To You</h1>
+            </div>
+            <ul id='recommended-list' class="list-body">
+            
+          </ul>
+            <div class="list-footer">
+            </div>
+          </section>
+        </section>
+      <section class="page-bottom">
         <section class="watched list">
           <div class="list-header">
             <h1> Watched </h1>
