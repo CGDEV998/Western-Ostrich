@@ -6,6 +6,7 @@ npm-debug.log
 *.env
 *.envrc
 *.dev
+.envrc
 .DS_Store
 
 # Docker
