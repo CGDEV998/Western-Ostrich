@@ -1,102 +1,44 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+const { userService, watchService} = require('./services');
+const env = require('dotenv').config();
+var blueBirdPromise = require("bluebird");
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static(__dirname + '/public'));
-
-// views is directory for all template files
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/', function (request, response) {
-  response.render('pages/index');
+app.use(express.static(__dirname + '/public'));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+  res.render('pages/index');
 });
 
-app.get('/profile', function (request, response) {
-  response.render('pages/profile');
+app.get('/profile/:username', (req, res) => {
+  var username = req.params.username;
+  blueBirdPromise.all([
+    userService.getUser(username),
+    watchService.getWatched(username),
+    watchService.getToWatch(username)
+  ]).then((values) => {
+    res.render(`./pages/profile`, {
+      user: values[0].rows[0],
+      watchedList: values[1].rows,
+      toWatchList: values[2].rows
+    });
+  });
 });
 
-app.get('/account', function (request, response) {
-  response.render('pages/account');
+app.get('*', (req, res) => {
+  res.render('pages/404');
 });
 
-app.get('/profile-info/:userid', (request, response) => {
-  let userId = request.params.userid;
-  let profileInfo1 = {
-    'userid': '01',
-    'username': 'Harry Potter',
-    'avatar': '/images/ostrich-profile.jpg'
-  };
-  let profileInfo2 = {
-    'userid': '02',
-    'username': 'Dumbledore',
-    'avatar': '/images/ostrich-profile.jpg'
-  };
-
-  switch (userId) {
-    case '01':
-      response.status(200);
-      response.json(profileInfo1);
-      break;
-    case '02':
-      response.status(200);
-      response.json(profileInfo2);
-      break;
-    default:
-      response.sendStatus(404);
-  };
-});
-
-app.get('/watched-list/:userid', (request, response) => {
-  let userId = request.params.userid;
-
-  let watched01 = {
-    watched: [{
-      title: 'Power Rangers',
-      director: 'Raf'
-    },
-    {
-      title: 'die hard',
-      director: 'donkey'
-    }]
-  };
-
-  switch (userId) {
-    case '01':
-      response.status(200);
-      response.json(watched01);
-      break;
-    default:
-      return response.sendStatus(404);
-  };
-});
-
-app.get('/towatch-list/:userid', (request, response) => {
-  let userId = request.params.userid;
-
-  let toWatch1 = {
-    toWatch: [{
-      title: 'back to the future2',
-      director: 'nic'
-    },
-    {
-      title: 'star trek',
-      director: 'aaron'
-    }]
-  };
-
-  switch (userId) {
-    case '01':
-      response.status(200);
-      response.json(toWatch1);
-      break;
-    default:
-      return response.sendStatus(404);
-  };
-});
-
-app.listen(app.get('port'), function () {
+app.listen(app.get('port'), () => {
   console.log('Node app is running on port', app.get('port'));
 });
 

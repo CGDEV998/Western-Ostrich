@@ -1,47 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <% include ../partials/header.ejs %>
     <link rel="stylesheet" type="text/css" href="/stylesheets/profile.css" />
-</head>
+  </head>
 
-<body>
-<% include ../partials/nav.ejs %>
-<div class="body-container">
-    <section class="user-info">
-        <div class="image-container">
+  <body>
+    <% include ../partials/nav.ejs %>
+    <div class="body-container">
+      <section class="page-top">
+        <section class="user-info">
+          <div class="image-container">
             <img src="/images/ostrich-profile.jpg" />
-        </div>
-        <ul class="profile">
+          </div>
+          <ul class="profile">
             <li>
-                <span id='username'></span>
+              <span id='username'>
+                <%= user.username %>
+            </span>
             </li>
-        </ul>
-    </section>
-    <section class="user-watch-lists">
-        <section class="watched list">
+          </ul>
+        </section>
+        <section class="recommended-list list">
             <div class="list-header">
-            <h1> Watched </h1>
+              <h1>Recommended To You</h1>
             </div>
-            <ul id='watched-list' class="list-body"></ul>
+            <ul id='recommended-list' class="list-body">
+            
+          </ul>
             <div class="list-footer">
-            <input type="button" value="+">
             </div>
+          </section>
+        </section>
+      <section class="page-bottom">
+        <section class="watched list">
+          <div class="list-header">
+            <h1> Watched </h1>
+          </div>
+          <ul id='watched-list' class="list-body">
+            <% for(var i=0; i<watchedList.length; i++) {%>
+              <li><%= watchedList[i].title %></li>
+            <% } %>
+          </ul>
+          <div class="list-footer">
+            <input type="button" value="+">
+          </div>
         </section>
         <section class="to-watch list">
-            <div class="list-header">
+          <div class="list-header">
             <h1> To Watch</h1>
-            </div>
-            <ul id='to-watch-list' class="list-body"></ul>
-            <div class="list-footer">
+          </div>
+          <ul id='to-watch-list' class="list-body">
+            <% for(var i=0; i<toWatchList.length; i++) {%>
+              <li><%= toWatchList[i].title %></li>
+            <% } %>
+          </ul>
+          <div class="list-footer">
             <input type="button" value="+">
-            </div>
+          </div>
         </section>
-    </section>
-</div>
-<script src="https://code.jquery.com/jquery-3.2.1.js"
-		integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-		crossorigin="anonymous"></script>
-<script src="/scripts/profile/main.js" ></script>
+      </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+      integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+  <script src="/scripts/profile/main.js" ></script>
+  <
 </body>
 </html>
